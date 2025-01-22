@@ -1,7 +1,7 @@
 {
 	"name": "shadcn-zod-form-builder",
 	"version": "0.0.1",
-	"description": "Generate shadcn/ui forms from zod schemas",
+	"description": "Generate shadcn/ui forms from zod schemas with Bun.js support",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -23,16 +23,33 @@
 		"form",
 		"ui",
 		"cli",
-		"react"
+		"react",
+		"bun"
 	],
-	"exports": "./dist/index.js",
-	"bin": "./dist/index.js",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"bin": {
+		"shadcn-zod-form-builder": "./dist/index.js"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
 	"scripts": {
-		"dev": "bun build ./src/index.ts --watch --outdir=dist --target=bun",
-		"build": "bun build ./src/index.ts --outdir=dist --target=bun",
-		"typecheck": "bun tsc --noEmit",
+		"dev": "tsup src/index.ts --watch --clean --format=esm,cjs --dts --sourcemap",
+		"build": "tsup src/index.ts --clean --format=esm,cjs --dts --sourcemap --minify",
+		"typecheck": "tsc --noEmit",
 		"lint": "bunx @biomejs/biome check src",
-		"test:examples": "bun run examples/test.ts"
+		"format": "bunx @biomejs/biome format --write src",
+		"test:examples": "bun run examples/test.ts",
+		"prepublishOnly": "bun run build"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -46,9 +63,10 @@
 		"@types/lodash.template": "^4.5.3",
 		"@types/node": "^22.5.4",
 		"@types/prompts": "^2.4.9",
+		"bun-types": "latest",
+		"tsup": "^8.3.5",
 		"type-fest": "^4.26.1",
-		"typescript": "^5.5.4",
-		"bun-types": "latest"
+		"typescript": "^5.5.4"
 	},
 	"dependencies": {
 		"chalk": "^5.3.0",

@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import path from "path";
-import { generate } from "../src/commands/generate";
-import { initCommand } from "../src/commands/init";
+import { generate } from "../../src/commands/generate";
+import { initCommand } from "../../src/commands/init";
 
 async function test() {
   try {
