@@ -37,7 +37,9 @@ bun run dev
 bun run build
 ```
 
-# Origin Author CLI NPM Package
+# Origin Author CLI [NPM](https://www.npmjs.com/package/shadcn-zod-form) Package
+
+[shadcn-zod-form](https://www.npmjs.com/package/shadcn-zod-form)
 
 ## Features
 
