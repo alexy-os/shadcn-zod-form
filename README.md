@@ -37,6 +37,8 @@ bun run dev
 bun run build
 ```
 
+# Origin Author CLI NPM Package
+
 ## Features
 
 - Generate shadcn/ui forms from Zod schemas
