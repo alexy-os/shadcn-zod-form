@@ -6,63 +6,136 @@ This fork includes the following enhancements:
 - Migration to Bun.js runtime for improved performance
 - Added examples directory with test schemas
 - Enhanced testing capabilities with `bun run test:examples`
+- Universal package manager support (npm, yarn, pnpm, bun)
+- Optimized bundle with tsup
 
-## Changes from Original
+## Installation
 
-### Bun.js Migration
-- Replaced Node.js build system with Bun's built-in bundler
-- Updated build scripts for Bun compatibility
-- Optimized package for Bun's runtime environment
-
-### New Examples & Testing
-- Added `examples/schemas/` directory with sample schemas:
-  - User profile schema with various field types
-  - Product schema with nested objects
-- Introduced `test:examples` command for local testing
-- Added automated test script to validate form generation
-
-### Usage with Bun
+### Via Package Managers
 
 ```bash
-# Install dependencies
-bun install
+# Using npm
+npm install shadcn-zod-form-builder
 
-# Run tests
-bun run test:examples
+# Using yarn
+yarn add shadcn-zod-form-builder
 
-# Development mode
-bun run dev
+# Using pnpm
+pnpm add shadcn-zod-form-builder
 
-# Build package
-bun run build
+# Using bun
+bun add shadcn-zod-form-builder
 ```
 
-# Origin Author CLI [NPM](https://www.npmjs.com/package/shadcn-zod-form) Package
+### Direct from GitHub
 
-[shadcn-zod-form](https://www.npmjs.com/package/shadcn-zod-form)
+You can install the package directly from the GitHub repository:
+
+```json
+{
+  "dependencies": {
+    "shadcn-zod-form-builder": "github:alexy-os/shadcn-zod-form-builder#bunjs"
+  }
+}
+```
+
+Or using package managers:
+
+```bash
+npm install alexy-os/shadcn-zod-form-builder#bunjs
+# or
+yarn add alexy-os/shadcn-zod-form-builder#bunjs
+# or
+pnpm add alexy-os/shadcn-zod-form-builder#bunjs
+# or
+bun add alexy-os/shadcn-zod-form-builder#bunjs
+```
 
 ## Features
 
 - Generate shadcn/ui forms from Zod schemas
 - Automatically map Zod types to appropriate form components
 - Easy-to-use CLI interface
-
-## Installation
-
-```bash
-npx shadcn-zod-form@latest init
-```
+- Universal compatibility (Node.js and Bun.js)
+- ESM and CommonJS support
+- TypeScript types included
+- Minified and optimized bundle
 
 ## Usage
 
+1. Initialize components:
 ```bash
-npx shadcn-zod-form@latest generate ./path/to/zod/schema.ts
+npx shadcn-zod-form-builder init
 ```
+
+2. Generate a form from your Zod schema:
+```bash
+npx shadcn-zod-form-builder generate ./path/to/schema.ts
+```
+
+## Development
+
+The project uses modern tooling for development:
+
+- **tsup** for bundling (faster than rollup/webpack)
+- **Biome** for linting and formatting (faster than eslint)
+- **TypeScript** for type safety
+- **Bun** for testing and development
+
+```bash
+# Install dependencies
+bun install
+
+# Development mode
+bun run dev
+
+# Run tests
+bun run test:examples
+
+# Build package
+bun run build
+
+# Lint code
+bun run lint
+
+# Format code
+bun run format
+```
+
+## Testing
+
+The package includes example schemas in the `examples/` directory:
+- User profile schema with various field types
+- Product schema with nested objects
+
+To test locally:
+```bash
+# Clone the repository
+git clone https://github.com/alexy-os/shadcn-zod-form-builder.git
+cd shadcn-zod-form-builder
+
+# Install dependencies
+bun install
+
+# Run tests
+bun run test:examples
+```
+
+## Bundle Information
+
+The package is built using tsup, which provides:
+- Smaller bundle size
+- Tree shaking
+- Source maps
+- TypeScript declarations
+- ESM and CommonJS support
+
+Output files in `dist/`:
+- `index.js` - ESM module
+- `index.cjs` - CommonJS module
+- `index.d.ts` - TypeScript declarations
+- Source maps for debugging
 
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
