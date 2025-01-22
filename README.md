@@ -1,4 +1,4 @@
-# shadcn-zod-form
+# Shadcn UI Zod Form Builder (Package)
 
 > Forked from [ilyichv/shadcn-zod-form](https://github.com/ilyichv/shadcn-zod-form)
 
