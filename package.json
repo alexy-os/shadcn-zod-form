@@ -1,6 +1,6 @@
 {
-	"name": "shadcn-zod-form",
-	"version": "0.0.4",
+	"name": "shadcn-zod-form-builder",
+	"version": "0.0.1",
 	"description": "Generate shadcn/ui forms from zod schemas",
 	"publishConfig": {
 		"access": "public"
@@ -10,12 +10,12 @@
 	],
 	"type": "module",
 	"author": {
-		"name": "ilyichv",
-		"url": "https://x.com/ilyichv_"
+		"name": "alexy-os",
+		"url": "https://github.com/alexy-os"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ilyichv/shadcn-zod-form.git"
+		"url": "https://github.com/alexy-os/shadcn-zod-form-builder.git"
 	},
 	"keywords": [
 		"shadcn",
@@ -28,10 +28,11 @@
 	"exports": "./dist/index.js",
 	"bin": "./dist/index.js",
 	"scripts": {
-		"dev": "tsup --watch",
-		"build": "tsup",
-		"typecheck": "tsc --noEmit",
-		"lint": "pnpm biome check src"
+		"dev": "bun build ./src/index.ts --watch --outdir=dist --target=bun",
+		"build": "bun build ./src/index.ts --outdir=dist --target=bun",
+		"typecheck": "bun tsc --noEmit",
+		"lint": "bunx @biomejs/biome check src",
+		"test:examples": "bun run examples/test.ts"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -45,9 +46,9 @@
 		"@types/lodash.template": "^4.5.3",
 		"@types/node": "^22.5.4",
 		"@types/prompts": "^2.4.9",
-		"tsup": "^8.2.4",
 		"type-fest": "^4.26.1",
-		"typescript": "^5.5.4"
+		"typescript": "^5.5.4",
+		"bun-types": "latest"
 	},
 	"dependencies": {
 		"chalk": "^5.3.0",
